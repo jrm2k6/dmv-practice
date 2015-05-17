@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-var _questions = require('../class-c-questions.json');
+var _questions = require('../QuestionsWrapper');
 
 var {
   TouchableHighlight,
