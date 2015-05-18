@@ -1,7 +1,7 @@
 'use strict';
 
 var React = require('react-native');
-var _questions = require('../QuestionsWrapper');
+var _wrapper = require('../QuestionsWrapper');
 
 var {
   TouchableHighlight,
@@ -13,8 +13,18 @@ var {
 
 class Questionnaire extends Component {
 	constructor(props) {
-		super(props);	
-		this.state = _questions;
+		super(props);
+		this._questions = this.reFormatQuestions(_wrapper);	
+		this.state = _wrapper;
+	}
+
+	reFormatQuestions(_wrapper) {
+		var _questions = _wrapper.questions;
+		for (var index in _questions) {
+			var txtQuestion = _questions[index].question;
+			var reformattedQuestion = txtQuestion.split(' ').slice(1).join(' ');
+			_questions[index].question = reformattedQuestion;
+		}
 	}
 
 	render() {
