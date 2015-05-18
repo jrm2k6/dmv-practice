@@ -33,6 +33,15 @@ class Questionnaire extends Component {
 				<Text style={styles.txt}>
 					{this.state.questions["0"].question}
 				</Text>
+				<View>
+					{this.state.questions["0"].answers.map((elem) => {
+						return (
+							<View>
+								<Text>{elem[0]}</Text>	
+							</View>
+						);
+					})}
+				</View>
 			</View>
 		)
 	}
