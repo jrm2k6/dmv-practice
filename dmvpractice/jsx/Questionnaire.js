@@ -8,6 +8,7 @@ var {
   Text,
   View,
   Component,
+  SwitchIOS,
   StyleSheet
 } = React;
 
@@ -30,14 +31,15 @@ class Questionnaire extends Component {
 	render() {
 		return (
 			<View style={styles.container}>
-				<Text style={styles.txt}>
+				<Text style={styles.questionText}>
 					{this.state.questions["0"].question}
 				</Text>
-				<View>
+				<View style={styles.answersContainer}>
 					{this.state.questions["0"].answers.map((elem) => {
 						return (
-							<View>
-								<Text>{elem[0]}</Text>	
+							<View style={styles.answerRow}>
+								<SwitchIOS />
+								<Text style={styles.answerText}>{elem[0]}</Text>
 							</View>
 						);
 					})}
@@ -54,8 +56,28 @@ var styles = StyleSheet.create({
     	alignItems: 'center'
 	},
 
-	txt : {
-		color: 'black'
+	answersContainer: {
+		height: 200,
+		marginTop: 25,
+		backgroundColor: '#CCCCCC',
+		alignSelf: 'stretch',
+	},
+
+	questionText : {
+		color: 'black',
+		fontSize: 18
+	},
+
+	answerRow: {
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'center',
+    	alignItems: 'center'
+	},
+
+	answerText: {
+		marginLeft: 15,
+		fontSize: 16
 	}
 });
 
