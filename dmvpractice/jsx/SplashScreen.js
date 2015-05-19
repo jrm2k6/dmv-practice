@@ -27,8 +27,8 @@ var styles = StyleSheet.create({
   }
 });
 
-class SplashScreen extends Component {
-    render() {
+var SplashScreen = React.createClass({
+    render: function() {
         return (
             <TouchableHighlight style={styles.mainContainer}>
                 <Text 
@@ -38,14 +38,14 @@ class SplashScreen extends Component {
                 </Text>
             </TouchableHighlight>
         );
-    }
+    },
 
-    handleStartButtonPressed() {
+    handleStartButtonPressed: function() {
         this.props.navigator.push({
             title: 'Questionnaire',
             component: Questionnaire
         });
     }
-}
+});
 
 module.exports = SplashScreen;

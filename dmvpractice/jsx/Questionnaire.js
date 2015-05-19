@@ -12,32 +12,31 @@ var {
   StyleSheet
 } = React;
 
-class Questionnaire extends Component {
-	constructor(props) {
-		super(props);
-		this._questions = this.reFormatQuestions(_wrapper);	
-		this.state = _wrapper;
-	}
+var Questionnaire = React.createClass({
+	getInitialState: function() {
+		this.reFormatQuestions(_wrapper);
+		return _wrapper;
+	},
 
-	reFormatQuestions(_wrapper) {
+	reFormatQuestions: function(_wrapper) {
 		var _questions = _wrapper.questions;
 		for (var index in _questions) {
 			var txtQuestion = _questions[index].question;
 			var reformattedQuestion = txtQuestion.split(' ').slice(1).join(' ');
 			_questions[index].question = reformattedQuestion;
 		}
-	}
+	},
 
-	render() {
+	render: function() {
 		return (
 			<View style={styles.container}>
 				<Text style={styles.questionText}>
 					{this.state.questions["0"].question}
 				</Text>
 				<View style={styles.answersContainer}>
-					{this.state.questions["0"].answers.map((elem) => {
+					{this.state.questions["0"].answers.map((elem, index) => {
 						return (
-							<View style={styles.answerRow}>
+							<View key={index} style={styles.answerRow}>
 								<SwitchIOS />
 								<Text style={styles.answerText}>{elem[0]}</Text>
 							</View>
@@ -47,7 +46,7 @@ class Questionnaire extends Component {
 			</View>
 		)
 	}
-}
+});
 
 var styles = StyleSheet.create({
 	container: {

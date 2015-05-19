@@ -20,7 +20,7 @@ var styles = StyleSheet.create({
   },
 });
 
-class Home extends React.Component{
+var Home = React.createClass({
   render() {
     return (
       <NavigatorIOS
@@ -31,7 +31,7 @@ class Home extends React.Component{
         }} />
     );
   }
-};
+});
 
 
-AppRegistry.registerComponent('dmvpractice', () => Home);
+var s = AppRegistry.registerComponent('dmvpractice', () => Home);
