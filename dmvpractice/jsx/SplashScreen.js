@@ -33,7 +33,7 @@ var SplashScreen = React.createClass({
             <TouchableHighlight style={styles.mainContainer}>
                 <Text 
                     style={styles.startBtn}
-                    onPress={this.handleStartButtonPressed.bind(this)}>
+                    onPress={this.handleStartButtonPressed}>
                     Start Practice Test
                 </Text>
             </TouchableHighlight>
