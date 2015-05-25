@@ -56,6 +56,7 @@ var Questionnaire = React.createClass({
                         return (
                             <View key={index} style={[styles.answerRow, _style]}>
                                 <SwitchIOS 
+                                    style={styles.switchAnswer}
                                     onValueChange={this.onValueChange.bind(this, index)}
                                     value={this.state.currentQuestionSelectedAnswer === index}
                                 />
@@ -154,7 +155,13 @@ var styles = StyleSheet.create({
 
     answerText: {
         marginLeft: 15,
+        flex: 0.85,
         fontSize: 16
+    },
+
+    switchAnswer: {
+        marginLeft: 10,
+        flex: 0.15
     },
 
     confirmQuestionBtn: {
